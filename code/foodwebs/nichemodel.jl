@@ -38,7 +38,7 @@ function get_TL(com::Community)
     A, N = com.A, com.N
     χ = (A ./ (norm.(eachrow(A), 1)))
     χ[isnan.(χ)] .= 0.0
-    return (inv(I(N) - χ) * ones(N , 1))[:] 
+    return ((I(N) - χ) \ ones(N , 1))[:] 
 end
 
 """
